@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { useToast, TYPE } from "./package";
 
-function App() {
+const App = () => {
+  const toast = useToast();
+  let id = -1;
+  const handleShowToast = () => {
+    id = toast.show('teste', {
+      // duration: 100000000,
+      isDark: true,
+      type: TYPE.ERROR
+    })
+  };
+  const handleCloseToast = () => {
+    toast.clear()
+  };
+  const handleCloseLastToast = () => {
+    toast.dismiss(id)
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button onClick={handleShowToast}>Show Toast</button>
+      <button onClick={handleCloseLastToast}>Close Last Toast</button>
+      <button onClick={handleCloseToast}>Close All Toast</button>
     </div>
   );
-}
+};
 
 export default App;

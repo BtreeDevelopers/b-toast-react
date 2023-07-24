@@ -1,0 +1,101 @@
+@import "./bounce.scss";
+
+.b-toast {
+  &__container {
+    width: 430px;
+    right: 0;
+    top: 0;
+    padding-top: 20px;
+    padding-right: 30px;
+    position: fixed;
+    z-index: 9999;
+    font-family: "Poppins", sans-serif !important;
+  }
+
+  &__alert {
+    position: relative;
+    transition: all 750ms ease-in-out;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding: 18px 28px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e5e6e8;
+    color: black;
+
+    &.dark {
+      background-color: #252831;
+      color: white;
+    }
+  }
+
+  &__close {
+    cursor: pointer;
+    height: 24px;
+    margin-left: 8px;
+  }
+
+  &__text {
+    display: flex;
+  }
+
+  &__title {
+    margin-right: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  &__content {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 400;
+  }
+}
+
+@mixin alert($name, $bgColor) {
+  .theme-#{$name} {
+    border: 2px solid $bgColor;
+  }
+
+  .color-#{$name} {
+    color: #{$bgColor};
+  }
+
+  .bg-#{$name} {
+    background: #{$bgColor} !important;
+  }
+}
+
+@include alert(success, #00f391);
+@include alert(error, #fe5050);
+@include alert(warning, #ff8a00);
+@include alert(info, #5093fe);
+
+.b-toast__progress {
+  position: absolute;
+  width: 100%;
+  height: 6px;
+  left: 0;
+  bottom: 0;
+  border-radius: 0px 0px 0px 6px;
+}
+
+@media (max-width: 800px) {
+  .b-toast {
+    &__container {
+      width: 100%;
+      padding-right: 0px;
+      padding-top: 0px;
+
+      >div {
+        margin: 10px;
+      }
+    }
+
+    &__alert {
+      margin-bottom: 10px;
+    }
+  }
+}
