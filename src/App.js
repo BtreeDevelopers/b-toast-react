@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useToast, TYPE } from "./package";
 
 const App = () => {
@@ -7,8 +7,9 @@ const App = () => {
   const handleShowToast = () => {
     id = toast.show('teste', {
       // duration: 100000000,
-      isDark: true,
-      type: TYPE.ERROR
+      isDark: false,
+      type: TYPE.ERROR,
+      // title:'a'
     })
   };
   const handleCloseToast = () => {

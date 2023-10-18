@@ -34,7 +34,7 @@ const Toast = ({ isDark }) => {
         setToasts((list) => {
           const finalList = [...list]
           const index = finalList.findIndex((e) => e.id === id);
-          if (index != -1) finalList.splice(index, 1);
+          if (index !== -1) finalList.splice(index, 1);
           return finalList
         });
       }, 750);
