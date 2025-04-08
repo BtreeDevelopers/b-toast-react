@@ -1,22 +1,21 @@
-import React from "react";
 import { useToast, TYPE } from "./package";
 
 const App = () => {
   const toast = useToast();
   let id = -1;
   const handleShowToast = () => {
-    id = toast.show('teste', {
+    id = toast.show("teste", {
       // duration: 100000000,
       isDark: false,
       type: TYPE.ERROR,
       // title:'a'
-    })
+    });
   };
   const handleCloseToast = () => {
-    toast.clear()
+    toast.clear();
   };
   const handleCloseLastToast = () => {
-    toast.dismiss(id)
+    toast.dismiss(id);
   };
   return (
     <div>

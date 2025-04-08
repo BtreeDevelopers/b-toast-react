@@ -1,4 +1,3 @@
-import React from "react";
 import Toast from "./toast";
 import { eventManager } from "./eventManager";
 
@@ -13,8 +12,8 @@ export const TYPE = {
   INFO: "info",
 };
 function useToast() {
-  const toast = {};
-  toast.show = (content, options) => {
+  const toast: any = {};
+  toast.show = (content: any, options: any) => {
     const props = Object.assign(
       {},
       { id: getId(), type: TYPE.SUCCESS, duration: 5000 },
@@ -27,13 +26,13 @@ function useToast() {
     return props.id;
   };
   toast.clear = () => eventManager.emit("clear-all");
-  toast.dismiss = (id) => {
+  toast.dismiss = (id: any) => {
     eventManager.emit("toast-delete", id);
   };
   return toast;
 }
-const ToastContainer = ({ globalOptions = {} }) => {
-  return (<Toast isDark={globalOptions.isDark} />);
+const ToastContainer = ({ globalOptions = {} }: any) => {
+  return <Toast isDark={globalOptions.isDark} />;
 };
 
 export { ToastContainer, useToast };
