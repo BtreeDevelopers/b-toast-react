@@ -6,7 +6,11 @@ import { libInjectCss } from "vite-plugin-lib-inject-css";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), dts(), libInjectCss()],
+  plugins: [
+    react(),
+    dts({ include: ["src/package"], exclude: ["vite.config.ts"] }),
+    libInjectCss(),
+  ],
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/package/index.tsx"),
