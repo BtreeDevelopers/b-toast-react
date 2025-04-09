@@ -6,9 +6,18 @@ O `b-toast` é uma biblioteca de toasts simples e personalizáveis para React. E
 
 ![](./example.gif)
 
-# Vue
+## Disponibilidades Atuais
 
-O bToast tambem é oferecido para Vue [B-toast-vue](https://github.com/BtreeDevelopers/b-toast)
+O bToast está disponível para as seguintes plataformas:
+
+- **Vue**: Utilize o pacote [b-toast-vue](https://www.npmjs.com/package/b-toast).
+- **Flutter**: Disponível via [b-toast-flutter](https://pub.dev/packages/btoast).
+
+## Próximas Disponibilidades
+
+Em breve, o bToast estará disponível para:
+- Angular
+- React Native
 
 ## Recursos
 
