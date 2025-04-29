@@ -16,6 +16,7 @@ O bToast está disponível para as seguintes plataformas:
 ## Próximas Disponibilidades
 
 Em breve, o bToast estará disponível para:
+
 - Angular
 - React Native
 
@@ -72,7 +73,7 @@ toast.show("Olá sou um toast!");
 
 // Ou com opções
 const id = toast.show("Conteúdo do toast", {
-  isDark: true,
+  theme: "dark",
 });
 // Ao invocar o toast, é retornado um ID único que
 // pode ser usado para removê-lo da tela, se necessário.
@@ -94,13 +95,13 @@ toast.dismiss(id);
 
 Aqui estão as propriedades disponíveis para o componente `b-toast`:
 
-| Atributo |  Tipo   |  Inicial  | Descrição                                                                                                                       |
-| :------- | :-----: | :-------: | :------------------------------------------------------------------------------------------------------------------------------ |
-| content  | String  |    --     | Define o conteúdo no toast. (requerido)                                                                                         |
-| type     | String  | `success` | Define o tipo de toast. Pode ser `success`, `error`, `warning`, `info`.                                                         |
-| title    | String  |    --     | Inserir um titulo personalizado ao toast.                                                                                       |
-| duration | Number  |  `5000`   | Define a duração em milissegundos que o toast ficará visível antes de ser fechado automaticamente. Padrão: `5000` (5 segundos). |
-| isDark   | Boolean |  `false`  | Define o tema padrão do toast. Padrão: `false`.                                                                                 |
+| Atributo |  Tipo  |  Inicial  | Descrição                                                                                                                       |
+| :------- | :----: | :-------: | :------------------------------------------------------------------------------------------------------------------------------ |
+| content  | String |    --     | Define o conteúdo no toast. (requerido)                                                                                         |
+| type     | String | `success` | Define o tipo de toast. Pode ser `success`, `error`, `warning`, `info`.                                                         |
+| title    | String |    --     | Inserir um titulo personalizado ao toast.                                                                                       |
+| duration | Number |  `5000`   | Define a duração em milissegundos que o toast ficará visível antes de ser fechado automaticamente. Padrão: `5000` (5 segundos). |
+| theme    | String |  `light`  | Define o tema padrão do toast. Pode ser: `dark`, `light`.                                                                       |
 
 ## Design Baseado em Pine UI
 

@@ -5,8 +5,8 @@ const App = () => {
   let id = -1;
   const handleShowToast = () => {
     id = toast.show("teste", {
-      // duration: 100000000,
-      isDark: false,
+      duration: 1000,
+      theme: "dark",
       type: TYPE.ERROR,
       // title:'a'
     });

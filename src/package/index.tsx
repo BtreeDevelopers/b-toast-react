@@ -1,19 +1,14 @@
 import Toast from "./toast";
 import { eventManager } from "./eventManager";
+import { OptionToast, ToastApi, ToastPlugin, TYPE } from "./types/toast";
 
 const getId = (
   (i) => () =>
     i++
 )(0);
-export const TYPE = {
-  SUCCESS: "success",
-  ERROR: "error",
-  WARNING: "warning",
-  INFO: "info",
-};
 function useToast() {
-  const toast: any = {};
-  toast.show = (content: any, options: any) => {
+  const toast: ToastApi = {} as ToastApi;
+  toast.show = (content: string, options?: OptionToast) => {
     const props = Object.assign(
       {},
       { id: getId(), type: TYPE.SUCCESS, duration: 5000 },
@@ -31,8 +26,12 @@ function useToast() {
   };
   return toast;
 }
-const ToastContainer = ({ globalOptions = {} }: any) => {
-  return <Toast isDark={globalOptions.isDark} />;
+const ToastContainer = ({
+  globalOptions = {},
+}: {
+  globalOptions?: ToastPlugin;
+}) => {
+  return <Toast isDark={globalOptions?.theme === "dark" || false} />;
 };
 
-export { ToastContainer, useToast };
+export { ToastContainer, useToast, TYPE };

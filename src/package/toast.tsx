@@ -4,9 +4,10 @@ import Timer from "./components/timer.tsx";
 import ProgressBar from "./components/progress.tsx";
 import X from "./components/x.tsx";
 import { eventManager } from "./eventManager.ts";
+import { IToast } from "./types/toast.ts";
 
-const Toast = ({ isDark }: any) => {
-  const [toasts, setToasts] = useState<any[]>([]);
+const Toast = ({ isDark }: { isDark: boolean }) => {
+  const [toasts, setToasts] = useState<IToast[]>([]);
   const [dark, setDark] = useState(false);
 
   useEffect(() => {
@@ -21,10 +22,10 @@ const Toast = ({ isDark }: any) => {
     };
   });
 
-  function addToast(params: any) {
-    setToasts((list: any) => [...list, params] as any);
+  function addToast(params: IToast) {
+    setToasts((list) => [...list, params]);
   }
-  function deleteToast(id: any) {
+  function deleteToast(id: number) {
     const toastElement = document.getElementById(`toast-${id}`);
     if (toastElement) {
       toastElement.style.animation = "bounceOutRight 750ms";
@@ -35,17 +36,18 @@ const Toast = ({ isDark }: any) => {
           if (index !== -1) finalList.splice(index, 1);
           return finalList;
         });
-      }, 750);
+      }, 700);
     }
   }
   function clearAll() {
-    toasts.forEach((toast: any) => {
+    toasts.forEach((toast: IToast) => {
       deleteToast(toast.id);
     });
   }
 
-  function getTheme(toast: any) {
-    if (toast && typeof toast.isDark === "boolean") return toast.isDark;
+  function getTheme(toast: IToast) {
+    if (toast && typeof (toast.theme === "dark") === "boolean")
+      return toast.theme === "dark";
     return dark;
   }
 
